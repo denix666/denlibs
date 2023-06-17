@@ -2,13 +2,13 @@
 /// Removes double quota of the string passed
 /// 
 /// # Example
-/// ```
+/// ```rust
 /// use denlibs::string_manipulations::remove_double_quotas;
 /// 
 /// fn main() {
-///     println!("Strint with removed quotas: {}", remove_double_quotas("\"test\"".to_string()));
+///     println!("String with removed quotas: {}", remove_double_quotas("\"test\"".to_string()));
 /// }
-/// 
+/// ```
 pub fn remove_double_quotas(mut string: String) -> String {
     string.retain(|c| c != '"');
     return string
