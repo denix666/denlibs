@@ -1,5 +1,5 @@
 //! # denlibs
 //!
-//! `denlibs` is a general-purpose libraries.
+//! Collection of general-purpose libraries.
 
 pub mod string_manipulations;
