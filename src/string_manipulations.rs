@@ -19,7 +19,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn remove_quotas_test1() {
+    fn remove_double_quotas_test() {
         let result = remove_double_quotas("\"test\"".to_string());
         assert!(result == "test");
     }
