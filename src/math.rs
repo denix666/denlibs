@@ -13,6 +13,36 @@ pub fn circle_area(radius: f32) -> f32 {
     return result.parse().unwrap()
 }
 
+/// Calculates area of rectangle or square. Returns f32 rounded to two numbers after point.
+/// 
+/// # Example
+/// ```rust
+/// use denlibs::math::rectangle_area;
+/// 
+/// fn main() {
+///     println!("{}", rectangle_area(2.0, 3.0));
+/// }
+/// ```
+pub fn rectangle_area(length: f32, breadth: f32) -> f32 {
+    let result = format!("{:.2}", length * breadth);
+    return result.parse().unwrap()
+}
+
+/// Calculates perimeter of corcle. Returns f32 rounded to two numbers after point.
+/// 
+/// # Example
+/// ```rust
+/// use denlibs::math::circle_perimeter;
+/// 
+/// fn main() {
+///     println!("{}", circle_perimeter(1.2));
+/// }
+/// ```
+pub fn circle_perimeter(radius: f32) -> f32 {
+    let result = format!("{:.2}", 2.0 * 3.14 * radius);
+    return result.parse().unwrap()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -20,5 +50,15 @@ mod tests {
     #[test]
     fn circle_area_test() {
         assert!(circle_area(5.1) == 81.67);
+    }
+
+    #[test]
+    fn rectangle_area_test() {
+        assert!(rectangle_area(2.0, 3.0) == 6.0);
+    }
+
+    #[test]
+    fn circle_perimeter_test() {
+        assert!(circle_perimeter(1.2) == 7.54);
     }
 }
