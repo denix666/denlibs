@@ -24,7 +24,6 @@ pub enum Direction {
 ///
 pub fn random_direction() -> Option<Direction> {
     quad_rand::srand(chrono::Utc::now().timestamp() as _);
-    println!("{}", chrono::Utc::now());
     match quad_rand::gen_range(0, 3) {
         0 => Some(Direction::Down),
         1 => Some(Direction::Left),
