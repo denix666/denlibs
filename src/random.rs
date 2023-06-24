@@ -6,7 +6,7 @@ pub enum Direction {
     Right,
 }
 
-/// Returns option of random choosed direction.
+/// Returns an option of random choosed direction.
 /// 
 /// # Example
 /// ```rust
@@ -14,10 +14,10 @@ pub enum Direction {
 /// 
 /// fn main() {
 ///     let _dir = match random_direction().unwrap() {
-///         Direction::Up => {println!("direction is Up")},
-///         Direction::Down => {println!("direction is Down")},
-///         Direction::Left => {println!("direction is Left")},
-///         Direction::Right => {println!("direction is Right")},
+///         Direction::Up => {println!("Choosed direction is Up")},
+///         Direction::Down => {println!("Choosed direction is Down")},
+///         Direction::Left => {println!("Choosed direction is Left")},
+///         Direction::Right => {println!("Choosed direction is Right")},
 ///     };
 /// }
 /// ```

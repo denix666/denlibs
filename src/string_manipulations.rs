@@ -6,7 +6,7 @@
 /// use denlibs::string_manipulations::remove_double_quotas;
 /// 
 /// fn main() {
-///     println!("String with removed quotas: {}", remove_double_quotas("\"test\"".to_string()));
+///     println!("String with removed double quotas: {}", remove_double_quotas("\"test\"".to_string()));
 /// }
 /// ```
 pub fn remove_double_quotas(mut string: String) -> String {

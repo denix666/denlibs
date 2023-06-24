@@ -5,7 +5,7 @@
 /// use denlibs::math::circle_area;
 /// 
 /// fn main() {
-///     println!("{}", circle_area(5.1));
+///     println!("Area of circle is: {}", circle_area(5.1));
 /// }
 /// ```
 pub fn circle_area(radius: f32) -> f32 {
@@ -20,7 +20,7 @@ pub fn circle_area(radius: f32) -> f32 {
 /// use denlibs::math::rectangle_area;
 /// 
 /// fn main() {
-///     println!("{}", rectangle_area(2.0, 3.0));
+///     println!("Area of rectangle is: {}", rectangle_area(2.0, 3.0));
 /// }
 /// ```
 pub fn rectangle_area(length: f32, breadth: f32) -> f32 {
@@ -35,7 +35,7 @@ pub fn rectangle_area(length: f32, breadth: f32) -> f32 {
 /// use denlibs::math::circle_perimeter;
 /// 
 /// fn main() {
-///     println!("{}", circle_perimeter(1.2));
+///     println!("Perimeter of circle is: {}", circle_perimeter(1.2));
 /// }
 /// ```
 pub fn circle_perimeter(radius: f32) -> f32 {
@@ -50,7 +50,7 @@ pub fn circle_perimeter(radius: f32) -> f32 {
 /// use denlibs::math::rectangle_perimeter;
 /// 
 /// fn main() {
-///     println!("{}", rectangle_perimeter(2.0, 3.0));
+///     println!("Perimeter of rectangle is: {}", rectangle_perimeter(2.0, 3.0));
 /// }
 /// ```
 pub fn rectangle_perimeter(length: f32, breadth: f32) -> f32 {
