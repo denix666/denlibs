@@ -23,8 +23,8 @@ pub fn circle_area(radius: f32) -> f32 {
 ///     println!("Area of rectangle is: {}", rectangle_area(2.0, 3.0));
 /// }
 /// ```
-pub fn rectangle_area(length: f32, breadth: f32) -> f32 {
-    let result = format!("{:.2}", length * breadth);
+pub fn rectangle_area(length: f32, width: f32) -> f32 {
+    let result = format!("{:.2}", length * width);
     return result.parse().unwrap()
 }
 
@@ -53,8 +53,38 @@ pub fn circle_perimeter(radius: f32) -> f32 {
 ///     println!("Perimeter of rectangle is: {}", rectangle_perimeter(2.0, 3.0));
 /// }
 /// ```
-pub fn rectangle_perimeter(length: f32, breadth: f32) -> f32 {
-    let result = format!("{:.2}", length * 2.0 + breadth * 2.0);
+pub fn rectangle_perimeter(length: f32, width: f32) -> f32 {
+    let result = format!("{:.2}", length * 2.0 + width * 2.0);
+    return result.parse().unwrap()
+}
+
+/// Calculates the volume of a box. Returns f32 rounded to two numbers after point.
+/// 
+/// # Example
+/// ```rust
+/// use denlibs::math::box_volume;
+/// 
+/// fn main() {
+///     println!("Volume of the box is: {}", box_volume(3.0, 5.0, 2.0));
+/// }
+/// ```
+pub fn box_volume(length: f32, width: f32, height: f32) -> f32 {
+    let result = format!("{:.2}", length * height * width);
+    return result.parse().unwrap()
+}
+
+/// Calculates the volume of a rectangular pyramid. Returns f32 rounded to two numbers after point.
+/// 
+/// # Example
+/// ```rust
+/// use denlibs::math::rectangular_pyramid_volume;
+/// 
+/// fn main() {
+///     println!("Volume of the rectangular pyramid is: {}", rectangular_pyramid_volume(3.0, 4.0, 5.0));
+/// }
+/// ```
+pub fn rectangular_pyramid_volume(base_length: f32, base_width: f32, pyramid_height: f32) -> f32 {
+    let result = format!("{:.2}", (base_length * base_width * pyramid_height) / 3.0);
     return result.parse().unwrap()
 }
 
@@ -80,5 +110,15 @@ mod tests {
     #[test]
     fn rectangle_perimeter_test() {
         assert!(rectangle_perimeter(2.0, 3.0) == 10.0);
+    }
+
+    #[test]
+    fn box_volume_test() {
+        assert!(box_volume(3.0, 5.0, 2.0) == 30.0);
+    }
+
+    #[test]
+    fn rectangular_pyramid_volume_test() {
+        assert!(rectangular_pyramid_volume(3.0, 4.0, 5.0) == 20.0);
     }
 }

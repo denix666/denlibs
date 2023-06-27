@@ -1,3 +1,5 @@
+use std::collections::hash_map::RandomState;
+use std::hash::{BuildHasher, Hasher};
 
 pub enum Direction {
     Up,
@@ -13,7 +15,7 @@ pub enum Direction {
 /// use denlibs::random::random_direction;
 /// 
 /// fn main() {
-///     let _dir = match random_direction().unwrap() {
+///     match random_direction().unwrap() {
 ///         Direction::Up => {println!("Choosed direction is Up")},
 ///         Direction::Down => {println!("Choosed direction is Down")},
 ///         Direction::Left => {println!("Choosed direction is Left")},
@@ -23,7 +25,8 @@ pub enum Direction {
 /// ```
 ///
 pub fn random_direction() -> Option<Direction> {
-    quad_rand::srand(chrono::Utc::now().timestamp() as _);
+    quad_rand::srand(RandomState::new().build_hasher().finish() as _);
+
     match quad_rand::gen_range(0, 3) {
         0 => Some(Direction::Down),
         1 => Some(Direction::Left),
