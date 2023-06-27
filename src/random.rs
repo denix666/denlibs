@@ -16,10 +16,10 @@ pub enum Direction {
 /// 
 /// fn main() {
 ///     match random_direction().unwrap() {
-///         Direction::Up => {println!("Choosed direction is Up")},
-///         Direction::Down => {println!("Choosed direction is Down")},
-///         Direction::Left => {println!("Choosed direction is Left")},
-///         Direction::Right => {println!("Choosed direction is Right")},
+///         denlibs::random::Direction::Up => {println!("Choosed direction is Up")},
+///         denlibs::random::Direction::Down => {println!("Choosed direction is Down")},
+///         denlibs::random::Direction::Left => {println!("Choosed direction is Left")},
+///         denlibs::random::Direction::Right => {println!("Choosed direction is Right")},
 ///     };
 /// }
 /// ```
@@ -27,7 +27,7 @@ pub enum Direction {
 pub fn random_direction() -> Option<Direction> {
     quad_rand::srand(RandomState::new().build_hasher().finish() as _);
 
-    match quad_rand::gen_range(0, 3) {
+    match quad_rand::gen_range(0, 4) {
         0 => Some(Direction::Down),
         1 => Some(Direction::Left),
         2 => Some(Direction::Up),
