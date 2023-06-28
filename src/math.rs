@@ -4,9 +4,8 @@
 /// ```rust
 /// use denlibs::math::circle_area;
 /// 
-/// fn main() {
-///     println!("Area of circle is: {}", circle_area(5.1));
-/// }
+/// // To calculate circle area: radius^2 * Pi
+/// assert_eq!(circle_area(5.1), 81.67);
 /// ```
 pub fn circle_area(radius: f32) -> f32 {
     let result = format!("{:.2}", radius * radius * 3.14);
@@ -19,9 +18,8 @@ pub fn circle_area(radius: f32) -> f32 {
 /// ```rust
 /// use denlibs::math::rectangle_area;
 /// 
-/// fn main() {
-///     println!("Area of rectangle is: {}", rectangle_area(2.0, 3.0));
-/// }
+/// // To calculate area of rectangle: length * width
+/// assert_eq!(rectangle_area(2.0, 3.0), 6.0);
 /// ```
 pub fn rectangle_area(length: f32, width: f32) -> f32 {
     let result = format!("{:.2}", length * width);
@@ -34,9 +32,8 @@ pub fn rectangle_area(length: f32, width: f32) -> f32 {
 /// ```rust
 /// use denlibs::math::circle_perimeter;
 /// 
-/// fn main() {
-///     println!("Perimeter of circle is: {}", circle_perimeter(1.2));
-/// }
+/// // To calculate perimeter of circle: 2 * 3.14 * radius
+/// assert_eq!(circle_perimeter(1.2), 7.54);
 /// ```
 pub fn circle_perimeter(radius: f32) -> f32 {
     let result = format!("{:.2}", 2.0 * 3.14 * radius);
@@ -49,9 +46,8 @@ pub fn circle_perimeter(radius: f32) -> f32 {
 /// ```rust
 /// use denlibs::math::rectangle_perimeter;
 /// 
-/// fn main() {
-///     println!("Perimeter of rectangle is: {}", rectangle_perimeter(2.0, 3.0));
-/// }
+/// // To calculate perimeter of rectangle: length * 2 + width * 2
+/// assert_eq!(rectangle_perimeter(2.0, 3.0), 10.0);
 /// ```
 pub fn rectangle_perimeter(length: f32, width: f32) -> f32 {
     let result = format!("{:.2}", length * 2.0 + width * 2.0);
@@ -64,9 +60,8 @@ pub fn rectangle_perimeter(length: f32, width: f32) -> f32 {
 /// ```rust
 /// use denlibs::math::box_volume;
 /// 
-/// fn main() {
-///     println!("Volume of the box is: {}", box_volume(3.0, 5.0, 2.0));
-/// }
+/// // To calculate volume of a box: length * height * width
+/// assert_eq!(box_volume(3.0, 5.0, 2.0), 30.0);
 /// ```
 pub fn box_volume(length: f32, width: f32, height: f32) -> f32 {
     let result = format!("{:.2}", length * height * width);
@@ -79,9 +74,8 @@ pub fn box_volume(length: f32, width: f32, height: f32) -> f32 {
 /// ```rust
 /// use denlibs::math::rectangular_pyramid_volume;
 /// 
-/// fn main() {
-///     println!("Volume of the rectangular pyramid is: {}", rectangular_pyramid_volume(3.0, 4.0, 5.0));
-/// }
+/// // To calculate volume of a rectangular pyramid: (base_length * base_width * pyramid_height) / 3
+/// assert!(rectangular_pyramid_volume(3.0, 4.0, 5.0) == 20.0);
 /// ```
 pub fn rectangular_pyramid_volume(base_length: f32, base_width: f32, pyramid_height: f32) -> f32 {
     let result = format!("{:.2}", (base_length * base_width * pyramid_height) / 3.0);
@@ -94,31 +88,31 @@ mod tests {
 
     #[test]
     fn circle_area_test() {
-        assert!(circle_area(5.1) == 81.67);
+        assert_eq!(circle_area(5.1), 81.67);
     }
 
     #[test]
     fn rectangle_area_test() {
-        assert!(rectangle_area(2.0, 3.0) == 6.0);
+        assert_eq!(rectangle_area(2.0, 3.0), 6.0);
     }
 
     #[test]
     fn circle_perimeter_test() {
-        assert!(circle_perimeter(1.2) == 7.54);
+        assert_eq!(circle_perimeter(1.2), 7.54);
     }
 
     #[test]
     fn rectangle_perimeter_test() {
-        assert!(rectangle_perimeter(2.0, 3.0) == 10.0);
+        assert_eq!(rectangle_perimeter(2.0, 3.0), 10.0);
     }
 
     #[test]
     fn box_volume_test() {
-        assert!(box_volume(3.0, 5.0, 2.0) == 30.0);
+        assert_eq!(box_volume(3.0, 5.0, 2.0), 30.0);
     }
 
     #[test]
     fn rectangular_pyramid_volume_test() {
-        assert!(rectangular_pyramid_volume(3.0, 4.0, 5.0) == 20.0);
+        assert_eq!(rectangular_pyramid_volume(3.0, 4.0, 5.0), 20.0);
     }
 }

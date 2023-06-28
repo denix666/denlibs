@@ -1,6 +1,3 @@
-use std::collections::hash_map::RandomState;
-use std::hash::{BuildHasher, Hasher};
-
 pub enum Direction {
     Up,
     Down,
@@ -12,19 +9,20 @@ pub enum Direction {
 /// 
 /// # Example
 /// ```rust
-/// use denlibs::random::random_direction;
+/// use denlibs::random::{Direction, random_direction};
 /// 
-/// fn main() {
-///     match random_direction().unwrap() {
-///         denlibs::random::Direction::Up => {println!("Choosed direction is Up")},
-///         denlibs::random::Direction::Down => {println!("Choosed direction is Down")},
-///         denlibs::random::Direction::Left => {println!("Choosed direction is Left")},
-///         denlibs::random::Direction::Right => {println!("Choosed direction is Right")},
-///     };
-/// }
+/// match random_direction().unwrap() {
+///     Direction::Up => {println!("Choosed direction is Up")},
+///     Direction::Down => {println!("Choosed direction is Down")},
+///     Direction::Left => {println!("Choosed direction is Left")},
+///     Direction::Right => {println!("Choosed direction is Right")},
+/// };
 /// ```
 ///
 pub fn random_direction() -> Option<Direction> {
+    use std::collections::hash_map::RandomState;
+    use std::hash::{BuildHasher, Hasher};
+
     quad_rand::srand(RandomState::new().build_hasher().finish() as _);
 
     match quad_rand::gen_range(0, 4) {
