@@ -75,11 +75,50 @@ pub fn box_volume(length: f32, width: f32, height: f32) -> f32 {
 /// use denlibs::math::rectangular_pyramid_volume;
 /// 
 /// // To calculate volume of a rectangular pyramid: (base_length * base_width * pyramid_height) / 3
-/// assert!(rectangular_pyramid_volume(3.0, 4.0, 5.0) == 20.0);
+/// assert_eq!(rectangular_pyramid_volume(3.0, 4.0, 5.0), 20.0);
 /// ```
 pub fn rectangular_pyramid_volume(base_length: f32, base_width: f32, pyramid_height: f32) -> f32 {
     let result = format!("{:.2}", (base_length * base_width * pyramid_height) / 3.0);
     return result.parse().unwrap()
+}
+
+/// Luhn algorithm for credit card number validation or other purposes. Performs a Luhn algorithm check on given string, returns true/false.
+/// 
+/// # Example
+/// 
+/// ```rust
+/// use denlibs::math::validate_luhn_sum;
+/// 
+/// assert!(validate_luhn_sum("4793480318851588"));
+/// ```
+pub fn validate_luhn_sum(number: &str) -> bool {
+    let number_chars: Vec<char> = number.chars().collect();
+    let mut first_char = true;
+    let mut luhn_sum: u32 = 0;
+
+    for i in number_chars {
+        if let Some(mut char) = i.to_digit(10) {
+            if first_char {
+                char *= 2;
+                if char >= 10  {
+                    let mut tmp_sum: u32 = 0;
+                    for j in char.to_string().chars() {
+                        tmp_sum += j.to_digit(10).unwrap();
+                    }
+                    luhn_sum += tmp_sum;
+                } else {
+                    luhn_sum += char;
+                }
+            } else {
+                luhn_sum += char;
+            }
+        } else {
+            return false
+        }
+        first_char = !first_char;
+    }
+
+    return luhn_sum % 10 == 0
 }
 
 #[cfg(test)]
@@ -114,5 +153,10 @@ mod tests {
     #[test]
     fn rectangular_pyramid_volume_test() {
         assert_eq!(rectangular_pyramid_volume(3.0, 4.0, 5.0), 20.0);
+    }
+
+    #[test]
+    fn validate_luhn_sum_test() {
+        assert!(validate_luhn_sum("4793480318851588"));
     }
 }
